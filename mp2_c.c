@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-extern float asmGetDistance(float *vec1, float *vec2, float *vec3, float *vec4);
+extern float asmGetDistance(float vec1, float vec2, float vec3, float vec4);
 
 int main(){
 	int i = 0;
@@ -15,8 +15,12 @@ int main(){
 	
 	for(i = 0; i < nLen; i++){
 		
-		fVecZ[i] = asmGetDistance(&fVecX1[i], &fVecX2[i], &fVecY1[i], &fVecY2[i]);
-		printf("%f", fVecZ[i]);
+		fVecZ[i] = asmGetDistance(fVecX1[i], fVecX2[i], fVecY1[i], fVecY2[i]);
+		
+	}
+	
+	for (i = 0; i < 10; i++){
+		printf("%f  ", fVecZ[i]);
 	}
 	return 0;
 }
